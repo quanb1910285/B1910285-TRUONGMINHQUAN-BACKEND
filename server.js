@@ -5,7 +5,7 @@ const MongoDB = require("./app/utils/mongodb.util");
 async function startSever() {
     try {
         await MongoDB.connect(config.db.uri);
-        console.log("Connect to the database!");
+        console.log("Connected to the database!");
 
         const PORT = config.app.port;
         app.listen(PORT, () => {
