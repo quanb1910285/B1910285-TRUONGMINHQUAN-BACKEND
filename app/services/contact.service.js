@@ -14,9 +14,9 @@ class ContactService {
             favorite: payload.favorite,
         };
 
-        Objects.keys(contact).forEach(
+        /*Objects.keys(contact).forEach(
             (key) => contact[key] === undefined && delete contact[key]
-        );
+        );*/
         return contact;
     } 
 
@@ -24,7 +24,7 @@ class ContactService {
         const contact = this.extractContactData(payload);
         const result = await this.Contact.findOneAndUpdate(
             contact,
-            {$set: {favorite: contact.favorite === "true"}},
+            {$set: {favorite: contact.favorite = "true"}},
             {returnDocument: "after", upsert: true}
         );
         return result.value;
